@@ -13,7 +13,8 @@ import 'package:flutter_application_1/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(MyApp());
+
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
@@ -27,4 +28,13 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  testWidgets('Login screen loads correctly', (WidgetTester tester) async {
+  await tester.pumpWidget(MyApp());
+
+  // Check if certain widgets exist (e.g., a login button or text fields)
+  expect(find.text('Login'), findsOneWidget); 
+  expect(find.byType(TextField), findsWidgets);
+});
+
 }
