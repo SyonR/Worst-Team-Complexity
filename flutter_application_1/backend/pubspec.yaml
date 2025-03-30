@@ -4,7 +4,7 @@ environment:
   sdk: ">=3.7.2 <4.0.0"
 
 dependencies:
-  http: ^1.1.0
+  http: ^1.3.0
   # Server-side dependencies
   shelf: ^1.4.0
   shelf_router: ^1.0.0
