@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'second_character_screen.dart'; // Import the ThirdCharacterScreen
+import 'fourth_character_screen.dart'; // Import the FourthCharacterScreen
 
-class FirstCharacterScreen extends StatefulWidget {
-  
-  const FirstCharacterScreen({super.key});
+
+class ThirdCharacterScreen extends StatefulWidget {
+  const ThirdCharacterScreen({super.key});
+
 
   @override
-  _FirstCharacterScreenState createState() => _FirstCharacterScreenState();
+  _ThirdCharacterScreenState createState() => _ThirdCharacterScreenState();
 }
 
-class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
+
+class _ThirdCharacterScreenState extends State<ThirdCharacterScreen> {
   bool _canNavigate = false;
   bool _imageLoaded = false;
+
 
   @override
   void initState() {
@@ -23,34 +26,32 @@ class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
     });
   }
 
+
   Future<void> _preloadImage() async {
     try {
       await precacheImage(const AssetImage('images/test.png'), context);
-      if (mounted) {
-        setState(() {
-          _imageLoaded = true;
-        });
-      }
+      setState(() {
+        _imageLoaded = true;
+      });
     } catch (e) {
       // Handle image loading error
       debugPrint('Error loading image: $e');
     }
   }
 
+
   void _onTap() {
     if (_canNavigate) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const SecondCharacterScreen(),
+          builder: (context) => const FourthCharacterScreen(),
         ),
       );
-    } else {
-      debugPrint('Cannot navigate yet. Wait for the animation to finish.');
     }
   }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF3EAD3),
@@ -89,7 +90,7 @@ class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
                   },
                   animatedTexts: [
                     TyperAnimatedText(
-                      "Hello! I’m Charlie, your personal habit tracking companion!",
+                      "To start, tell me one bad habit that you’d like to work on.",
                       textStyle: const TextStyle(
                         fontSize: 16,
                         fontFamily: 'Courier',

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'second_character_screen.dart'; // Import the ThirdCharacterScreen
+import 'third_character_screen.dart'; // Import the ThirdCharacterScreen
 
-class FirstCharacterScreen extends StatefulWidget {
+class SecondCharacterScreen extends StatefulWidget {
   
-  const FirstCharacterScreen({super.key});
+  const SecondCharacterScreen({super.key});
 
   @override
-  _FirstCharacterScreenState createState() => _FirstCharacterScreenState();
+  _SecondCharacterScreenState createState() => _SecondCharacterScreenState();
 }
 
-class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
+class _SecondCharacterScreenState extends State<SecondCharacterScreen> {
   bool _canNavigate = false;
   bool _imageLoaded = false;
 
@@ -25,7 +25,7 @@ class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
 
   Future<void> _preloadImage() async {
     try {
-      await precacheImage(const AssetImage('images/test.png'), context);
+      await precacheImage(const AssetImage('images/test2.png'), context);
       if (mounted) {
         setState(() {
           _imageLoaded = true;
@@ -42,15 +42,15 @@ class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const SecondCharacterScreen(),
+          builder: (context) => const ThirdCharacterScreen(),
         ),
       );
     } else {
       debugPrint('Cannot navigate yet. Wait for the animation to finish.');
     }
   }
-
-  @override
+  
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF3EAD3),
@@ -62,7 +62,7 @@ class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
             children: [
               _imageLoaded
                   ? Image.asset(
-                      'images/test.png',
+                      'images/test2.png',
                       width: 200,
                     )
                   : const SizedBox(
@@ -89,7 +89,7 @@ class _FirstCharacterScreenState extends State<FirstCharacterScreen> {
                   },
                   animatedTexts: [
                     TyperAnimatedText(
-                      "Hello! I’m Charlie, your personal habit tracking companion!",
+                      "I will assist you in making good habits and breaking bad ones!",
                       textStyle: const TextStyle(
                         fontSize: 16,
                         fontFamily: 'Courier',

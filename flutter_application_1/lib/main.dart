@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/users.dart';
-import '../screens/first_character_screen.dart';
+import 'screens/intro_character_screen.dart';
 import '../screens/dashboard_screen.dart';
 
 void main() async {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: user.isFirstTime
-          ? FirstCharacterScreen(user: user)
+          ? IntroCharacterScreen(user: user)
           : const DashboardScreen(),
     );
   }
